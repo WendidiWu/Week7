@@ -1,3 +1,6 @@
+process.env.API-KEY
+process.env.MONGODB-URL
+
 //install and load lowdb
 //let express = require('express');
 import express from 'express'
@@ -38,8 +41,10 @@ app.post('/userEmojis', (req,res)=>{
 })
 
 app.use('/', express.static('public'));
-app.listen(4000, ()=>{
-    console.log('listening at localhost:4000')
+
+let port = process.env.PORT || 3000;
+app.listen(port, ()=>{
+    console.log('listening at ', port);
 })
 
 app.get('/getEmojis', (req,res)=>{
